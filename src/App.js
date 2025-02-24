@@ -13,8 +13,11 @@ function App() {
 
 	return (
 		<div className='App'>
-			<button onClick={onClose}>Закрыть close</button>
-			<button onClick={onClose}>Закрыть close</button>
+			<div className={'action'}>
+				<button onClick={onClose} className={'button'}>
+					Закрыть close
+				</button>
+			</div>
 		</div>
 	);
 }
