@@ -6,6 +6,8 @@ import styles from './Header.module.scss';
 const Header = () => {
 	const { user, onClose } = useTelegram();
 
+	console.log('user', user);
+
 	return (
 		<div className={styles.container}>
 			<Button onClick={onClose}>Закрыть</Button>
