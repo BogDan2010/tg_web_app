@@ -3,12 +3,10 @@ import React from 'react';
 import Button from '../Button/Button';
 import styles from './ProductItem.module.scss';
 
-const ProductItem = ({ product, onAdd, className, count }) => {
-	const onAddHandler = () => {
-		onAdd(product);
+const ProductItem = ({ product, onChangeAdded, className, count }) => {
+	const onChangeAddedHandler = (flag) => {
+		onChangeAdded(product, flag);
 	};
-
-	console.log('count', count);
 
 	return (
 		<div className={`${styles.product} ${className}`}>
@@ -21,9 +19,29 @@ const ProductItem = ({ product, onAdd, className, count }) => {
 				</span>
 				<div className={styles.description}>{`${count}`}</div>
 			</div>
-			<Button className={styles.addBtn} onClick={onAddHandler}>
-				Добавить в корзину
-			</Button>
+			{count === 0 ? (
+				<Button
+					className={styles.addBtn}
+					onClick={() => onChangeAddedHandler('add')}
+				>
+					Добавить
+				</Button>
+			) : (
+				<div className={styles.btnContainer}>
+					<Button
+						className={`${styles.circleBtn} ${styles.circleBtn_remove}`}
+						onClick={() => onChangeAddedHandler('remove')}
+					>
+						-
+					</Button>
+					<Button
+						className={`${styles.circleBtn} ${styles.circleBtn_add}`}
+						onClick={() => onChangeAddedHandler('add')}
+					>
+						+
+					</Button>
+				</div>
+			)}
 		</div>
 	);
 };

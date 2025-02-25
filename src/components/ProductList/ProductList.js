@@ -95,13 +95,17 @@ const ProductList = () => {
 		};
 	}, [onSendData]);
 
-	const onAdd = (product) => {
+	const onChangeAdded = (product, flag) => {
 		const alreadyAdded = addedItems.find((item) => item.id === product.id);
 		let newItems = [];
 
 		if (alreadyAdded) {
 			newItems = addedItems.map((item) =>
-				item.id === product.id ? { ...item, count: item.count + 1 } : item
+				item.id === product.id && flag === 'add'
+					? { ...item, count: item.count + 1 }
+					: item.id === product.id && flag === 'remove'
+					? { ...item, count: item.count - 1 }
+					: item
 			);
 		} else {
 			newItems = [...addedItems, { ...product, count: 1 }];
@@ -127,7 +131,7 @@ const ProductList = () => {
 				<ProductItem
 					count={getCurrentCount(item.id)}
 					product={item}
-					onAdd={onAdd}
+					onChangeAdded={onChangeAdded}
 					className={styles.item}
 				/>
 			))}

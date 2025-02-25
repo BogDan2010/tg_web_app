@@ -21,3 +21,24 @@
 .addBtn {
 	width: 100%;
 }
+
+.btnContainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.circleBtn {
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	margin-right: 10px;
+	color: white;
+	border: none;
+	&_remove {
+		background: red;
+	}
+	&_add {
+		background: green;
+	}
+}
