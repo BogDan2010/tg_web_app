@@ -17,6 +17,7 @@ const ProductItem = ({ product, onAdd, className }) => {
 				<span>
 					Стоимость: <b>{product.price}</b>
 				</span>
+				<div className={styles.description}>{`${product.count}`}</div>
 			</div>
 			<Button className={styles.addBtn} onClick={onAddHandler}>
 				Добавить в корзину
