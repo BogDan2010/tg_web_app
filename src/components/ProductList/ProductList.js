@@ -100,11 +100,7 @@ const ProductList = () => {
 		let newItems = [];
 
 		if (alreadyAdded) {
-			newItems = addedItems.map((item) => {
-				if (item.id === product.id) {
-					item.count += 1;
-				}
-			});
+			newItems = addedItems.filter((item) => item.id !== product.id);
 		} else {
 			newItems = [...addedItems, product];
 		}
