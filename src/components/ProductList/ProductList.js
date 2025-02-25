@@ -10,48 +10,56 @@ const products = [
 		title: 'Джинсы',
 		price: 5000,
 		description: 'Синего цвета, прямые',
+		count: 0,
 	},
 	{
 		id: '2',
 		title: 'Куртка',
 		price: 12000,
 		description: 'Зеленого цвета, теплая',
+		count: 0,
 	},
 	{
 		id: '3',
 		title: 'Джинсы 2',
 		price: 5000,
 		description: 'Синего цвета, прямые',
+		count: 0,
 	},
 	{
 		id: '4',
 		title: 'Куртка 8',
 		price: 122,
 		description: 'Зеленого цвета, теплая',
+		count: 0,
 	},
 	{
 		id: '5',
 		title: 'Джинсы 3',
 		price: 5000,
 		description: 'Синего цвета, прямые',
+		count: 0,
 	},
 	{
 		id: '6',
 		title: 'Куртка 7',
 		price: 600,
 		description: 'Зеленого цвета, теплая',
+		count: 0,
 	},
 	{
 		id: '7',
 		title: 'Джинсы 4',
 		price: 5500,
 		description: 'Синего цвета, прямые',
+		count: 0,
 	},
 	{
 		id: '8',
 		title: 'Куртка 5',
 		price: 12000,
 		description: 'Зеленого цвета, теплая',
+		count: 0,
 	},
 ];
 
@@ -92,7 +100,11 @@ const ProductList = () => {
 		let newItems = [];
 
 		if (alreadyAdded) {
-			newItems = addedItems.filter((item) => item.id !== product.id);
+			newItems = addedItems.map((item) => {
+				if (item.id === product.id) {
+					item.count += 1;
+				}
+			});
 		} else {
 			newItems = [...addedItems, product];
 		}
