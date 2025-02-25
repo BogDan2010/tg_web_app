@@ -65,7 +65,7 @@ const products = [
 
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
-		return (acc += item.price);
+		return (acc += item.price * item.count);
 	}, 0);
 };
 
@@ -94,7 +94,7 @@ const ProductList = () => {
 			tg.offEvent('mainButtonClicked', onSendData);
 		};
 	}, [onSendData]);
-
+	console.log('addedItems', addedItems);
 	const onAdd = (product) => {
 		const alreadyAdded = addedItems.find((item) => item.id === product.id);
 		let newItems = [];
