@@ -71,7 +71,7 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId,
 		};
-		fetch('http://localhost:8000/web-data', {
+		fetch('https://2ed2-68-183-154-121.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
