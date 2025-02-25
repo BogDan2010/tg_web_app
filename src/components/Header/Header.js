@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
-import Button from '../../ui/Button/Button';
+import Button from '../Button/Button';
 import styles from './Header.module.scss';
 
 const Header = () => {
