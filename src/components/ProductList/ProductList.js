@@ -100,14 +100,11 @@ const ProductList = () => {
 		let newItems = [];
 
 		if (alreadyAdded) {
-			newItems = addedItems.map((item) => {
-				if (item.id === product.id) {
-					item.count += 1;
-				}
-			});
+			newItems = addedItems.map((item) =>
+				item.id === product.id ? { ...item, count: item.count + 1 } : item
+			);
 		} else {
-			product.count += 1;
-			newItems = [...addedItems, product];
+			newItems = [...addedItems, { ...product, count: 1 }];
 		}
 		setAddedItems(newItems);
 
