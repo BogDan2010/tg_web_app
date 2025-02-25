@@ -94,7 +94,7 @@ const ProductList = () => {
 			tg.offEvent('mainButtonClicked', onSendData);
 		};
 	}, [onSendData]);
-	console.log('addedItems', addedItems);
+
 	const onAdd = (product) => {
 		const alreadyAdded = addedItems.find((item) => item.id === product.id);
 		let newItems = [];
@@ -118,10 +118,18 @@ const ProductList = () => {
 		}
 	};
 
+	const getCurrentCount = (id) =>
+		addedItems.find((el) => (el.id === id)?.count || 0);
+
 	return (
 		<div className={styles.list}>
 			{products.map((item) => (
-				<ProductItem product={item} onAdd={onAdd} className={styles.item} />
+				<ProductItem
+					count={getCurrentCount(item.id)}
+					product={item}
+					onAdd={onAdd}
+					className={styles.item}
+				/>
 			))}
 		</div>
 	);

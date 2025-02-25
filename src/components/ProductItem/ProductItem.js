@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../Button/Button';
 import styles from './ProductItem.module.scss';
 
-const ProductItem = ({ product, onAdd, className }) => {
+const ProductItem = ({ product, onAdd, className, count }) => {
 	const onAddHandler = () => {
 		onAdd(product);
 	};
@@ -17,7 +17,7 @@ const ProductItem = ({ product, onAdd, className }) => {
 				<span>
 					Стоимость: <b>{product.price}</b>
 				</span>
-				<div className={styles.description}>{`${product.count}`}</div>
+				<div className={styles.description}>{`${count}`}</div>
 			</div>
 			<Button className={styles.addBtn} onClick={onAddHandler}>
 				Добавить в корзину
