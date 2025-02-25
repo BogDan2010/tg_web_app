@@ -8,6 +8,8 @@ const ProductItem = ({ product, onAdd, className, count }) => {
 		onAdd(product);
 	};
 
+	console.log('count', count);
+
 	return (
 		<div className={`${styles.product} ${className}`}>
 			<div className={styles.img}></div>

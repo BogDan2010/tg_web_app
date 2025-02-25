@@ -119,7 +119,7 @@ const ProductList = () => {
 	};
 
 	const getCurrentCount = (id) =>
-		addedItems.find((el) => (el.id === id)?.count || 0);
+		addedItems.find((item) => item.id === id)?.count || 0;
 
 	return (
 		<div className={styles.list}>
