@@ -20,9 +20,9 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<Routes>
-					<Route index element={<CategoryList />} />
-					<Route path={'subcategory'} element={<SubCategoryList />} />
-					<Route path={'products'} element={<ProductList />} />
+					<Route index path={'/'} element={<CategoryList />} />
+					<Route path={'/subcategory'} element={<SubCategoryList />} />
+					<Route path={'/products'} element={<ProductList />} />
 					<Route path={'form'} element={<Form />} />
 				</Routes>
 			</BrowserRouter>

@@ -13,7 +13,7 @@ const CategoryItem = ({ subCategory }) => {
 			<div
 				className={styles.imgContainer}
 				onClick={() =>
-					navigate('subcategory', { state: { items: subCategory.items } })
+					navigate('subcategory', { state: { subCategory: subCategory } })
 				}
 			>
 				<img

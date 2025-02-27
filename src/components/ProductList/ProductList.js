@@ -6,64 +6,64 @@ import { useTelegram } from '../../hooks/useTelegram';
 import ProductItem from '../ProductItem/ProductItem';
 import styles from './ProductList.module.scss';
 
-const products = [
-	{
-		id: '1',
-		title: 'Джинсы',
-		price: 5000,
-		description: 'Синего цвета, прямые',
-		count: 0,
-	},
-	{
-		id: '2',
-		title: 'Куртка',
-		price: 12000,
-		description: 'Зеленого цвета, теплая',
-		count: 0,
-	},
-	{
-		id: '3',
-		title: 'Джинсы 2',
-		price: 5000,
-		description: 'Синего цвета, прямые',
-		count: 0,
-	},
-	{
-		id: '4',
-		title: 'Куртка 8',
-		price: 122,
-		description: 'Зеленого цвета, теплая',
-		count: 0,
-	},
-	{
-		id: '5',
-		title: 'Джинсы 3',
-		price: 5000,
-		description: 'Синего цвета, прямые',
-		count: 0,
-	},
-	{
-		id: '6',
-		title: 'Куртка 7',
-		price: 600,
-		description: 'Зеленого цвета, теплая',
-		count: 0,
-	},
-	{
-		id: '7',
-		title: 'Джинсы 4',
-		price: 5500,
-		description: 'Синего цвета, прямые',
-		count: 0,
-	},
-	{
-		id: '8',
-		title: 'Куртка 5',
-		price: 12000,
-		description: 'Зеленого цвета, теплая',
-		count: 0,
-	},
-];
+// const products = [
+// 	{
+// 		id: '1',
+// 		title: 'Джинсы',
+// 		price: 5000,
+// 		description: 'Синего цвета, прямые',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '2',
+// 		title: 'Куртка',
+// 		price: 12000,
+// 		description: 'Зеленого цвета, теплая',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '3',
+// 		title: 'Джинсы 2',
+// 		price: 5000,
+// 		description: 'Синего цвета, прямые',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '4',
+// 		title: 'Куртка 8',
+// 		price: 122,
+// 		description: 'Зеленого цвета, теплая',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '5',
+// 		title: 'Джинсы 3',
+// 		price: 5000,
+// 		description: 'Синего цвета, прямые',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '6',
+// 		title: 'Куртка 7',
+// 		price: 600,
+// 		description: 'Зеленого цвета, теплая',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '7',
+// 		title: 'Джинсы 4',
+// 		price: 5500,
+// 		description: 'Синего цвета, прямые',
+// 		count: 0,
+// 	},
+// 	{
+// 		id: '8',
+// 		title: 'Куртка 5',
+// 		price: 12000,
+// 		description: 'Зеленого цвета, теплая',
+// 		count: 0,
+// 	},
+// ];
 
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
@@ -74,11 +74,11 @@ const getTotalPrice = (items = []) => {
 const ProductList = () => {
 	const dispatch = useDispatch();
 
-	const categories = useSelector((state) => state.categories.data);
+	const products = useSelector((state) => state.categories.dataProducts);
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
 
-	console.log('ProductList categories', categories);
+	console.log('ProductList products', products);
 
 	const onSendData = useCallback(() => {
 		const data = {
@@ -138,7 +138,7 @@ const ProductList = () => {
 
 	return (
 		<div className={styles.list}>
-			{products.map((item) => (
+			{products?.map((item) => (
 				<ProductItem
 					count={getCurrentCount(item.id)}
 					product={item}

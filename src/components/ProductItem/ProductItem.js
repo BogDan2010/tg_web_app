@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { GARRYS_API_URL } from '../../core/http';
 import Button from '../Button/Button';
 import styles from './ProductItem.module.scss';
 
@@ -10,14 +11,15 @@ const ProductItem = ({ product, onChangeAdded, className, count }) => {
 
 	return (
 		<div className={`${styles.product} ${className}`}>
-			<div className={styles.img}></div>
-			<div className={styles.title}>{product.title}</div>
-			<div className={styles.description}>{product.description}</div>
+			<div className={styles.imgContainer}>
+				<img className={styles.img} src={`${GARRYS_API_URL}${product.image}`} />
+			</div>
+			<div className={styles.name}>{product.name}</div>
 			<div className={styles.price}>
 				<span>
 					Стоимость: <b>{product.price}</b>
 				</span>
-				<div className={styles.description}>{`${count}`}</div>
+				<div className={styles.count}>{`${count}`}</div>
 			</div>
 			{count === 0 ? (
 				<Button

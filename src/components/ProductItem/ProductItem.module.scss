@@ -4,18 +4,36 @@
 	border: 1px solid var(--tg-theme-button-color);
 	padding: 15px;
 	width: 170px;
+	text-align: center;
 }
 
+.imgContainer {
+	width: 130px;
+	height: 130px;
+	margin-bottom: 5px;
+}
 .img {
 	width: 100%;
-	background: lightgray;
-	height: 100px;
-	margin: 0 auto;
-	background: var(--tg-theme-button-color);
+	height: 100%;
+	object-fit: contain;
 }
 
-.description {
+.name {
 	font-size: 0.8em;
+	margin-bottom: 5px;
+	color: var(--tg-theme-text-color);
+}
+
+.price {
+	font-size: 0.8em;
+	margin-bottom: 5px;
+	color: var(--tg-theme-text-color);
+}
+
+.count {
+	font-size: 0.8em;
+	margin-bottom: 5px;
+	color: var(--tg-theme-text-color);
 }
 
 .addBtn {
