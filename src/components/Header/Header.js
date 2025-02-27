@@ -1,10 +1,10 @@
 import React from 'react';
-// import { useTelegram } from '../../hooks/useTelegram';
+import { useTelegram } from '../../hooks/useTelegram';
 // import Button from '../Button/Button';
 import styles from './Header.module.scss';
 
 const Header = () => {
-	// const { user, onClose } = useTelegram();
+	const { user } = useTelegram();
 
 	return (
 		<div className={styles.container}>
