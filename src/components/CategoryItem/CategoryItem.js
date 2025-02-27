@@ -16,7 +16,7 @@ const CategoryItem = ({ subCategory }) => {
 					className={styles.img}
 				/>
 			</div>
-			<div className={styles.title}>{subCategory.name}</div>
+			{/* <div className={styles.title}>{subCategory.name}</div> */}
 		</div>
 	);
 };
