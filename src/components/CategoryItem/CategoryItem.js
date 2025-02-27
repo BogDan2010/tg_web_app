@@ -10,7 +10,12 @@ const CategoryItem = ({ subCategory }) => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.imgContainer} onClick={() => navigate('products')}>
+			<div
+				className={styles.imgContainer}
+				onClick={() =>
+					navigate('subcategory', { state: { items: subCategory.items } })
+				}
+			>
 				<img
 					alt=''
 					src={getImagecategory(subCategory.id)}
