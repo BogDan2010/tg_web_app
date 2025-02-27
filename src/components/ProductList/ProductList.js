@@ -78,7 +78,7 @@ const ProductList = () => {
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
 
-	console.log('ProductList products', products);
+	// console.log('ProductList products', products);
 
 	const onSendData = useCallback(() => {
 		const data = {
@@ -86,7 +86,7 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId,
 		};
-		fetch('https://2ed2-68-183-154-121.ngrok-free.app/web-data', {
+		fetch('https://ac57-91-212-198-136.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
