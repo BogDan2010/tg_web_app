@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import './App.css';
+import CategoryList from './components/CategoryList/CategoryList';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
 import ProductList from './components/ProductList/ProductList';
@@ -14,11 +16,14 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Header />
-			<Routes>
-				<Route index element={<ProductList />} />
-				<Route path={'form'} element={<Form />} />
-			</Routes>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route index element={<CategoryList />} />
+					<Route path={'products'} element={<ProductList />} />
+					<Route path={'form'} element={<Form />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 }

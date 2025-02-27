@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
 import ProductItem from '../ProductItem/ProductItem';
 import styles from './ProductList.module.scss';
@@ -70,8 +72,13 @@ const getTotalPrice = (items = []) => {
 };
 
 const ProductList = () => {
+	const dispatch = useDispatch();
+
+	const categories = useSelector((state) => state.categories.data);
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
+
+	console.log('ProductList categories', categories);
 
 	const onSendData = useCallback(() => {
 		const data = {
@@ -94,6 +101,10 @@ const ProductList = () => {
 			tg.offEvent('mainButtonClicked', onSendData);
 		};
 	}, [onSendData]);
+
+	useEffect(() => {
+		dispatch(getAllCategories());
+	}, []);
 
 	const onChangeAdded = (product, flag) => {
 		const alreadyAdded = addedItems.find((item) => item.id === product.id);
