@@ -79,6 +79,8 @@ const ProductList = () => {
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
 
+	// console.log('tg.initDataUnsafe?', tg.initDataUnsafe);
+
 	useEffect(() => {
 		const handleBack = () => {
 			navigate('/'); // Навигация назад
@@ -99,29 +101,30 @@ const ProductList = () => {
 
 	// console.log('ProductList products', products);
 
+	const onSendData = useCallback(() => {
+		const data = {
+			products: addedItems,
+			totalPrice: getTotalPrice(addedItems),
+			queryId,
+			initDataUnsafe: tg.initDataUnsafe,
+		};
+		fetch('https://6e53-68-183-154-121.ngrok-free.app/web-data', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		});
+	}, [addedItems, queryId]);
+
 	// const onSendData = useCallback(() => {
 	// 	const data = {
 	// 		products: addedItems,
 	// 		totalPrice: getTotalPrice(addedItems),
 	// 		queryId,
 	// 	};
-	// 	fetch('https://6e53-68-183-154-121.ngrok-free.app/web-data', {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 		},
-	// 		body: JSON.stringify(data),
-	// 	});
+	// 	tg.sendData(JSON.stringify(data));
 	// }, [addedItems, queryId]);
-
-	const onSendData = useCallback(() => {
-		const data = {
-			products: addedItems,
-			totalPrice: getTotalPrice(addedItems),
-			queryId,
-		};
-		tg.sendData(JSON.stringify(data));
-	}, [addedItems, queryId]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
