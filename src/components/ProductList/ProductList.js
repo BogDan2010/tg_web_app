@@ -81,7 +81,7 @@ const ProductList = () => {
 
 	useEffect(() => {
 		const handleBack = () => {
-			navigate(-1); // Навигация назад
+			navigate('/'); // Навигация назад
 		};
 
 		// Показываем кнопку при монтировании
@@ -130,13 +130,20 @@ const ProductList = () => {
 		let newItems = [];
 
 		if (alreadyAdded) {
-			newItems = addedItems.map((item) =>
-				item.id === product.id && flag === 'add'
-					? { ...item, count: item.count + 1 }
-					: item.id === product.id && flag === 'remove'
-					? { ...item, count: item.count - 1 }
-					: item
-			);
+			newItems = addedItems
+				.map((item) => {
+					if (item.id !== product.id) return item;
+
+					const newCount =
+						flag === 'add'
+							? item.count + 1
+							: flag === 'remove'
+							? item.count - 1
+							: item.count;
+
+					return { ...item, count: newCount };
+				})
+				.filter((item) => item.count > 0);
 		} else {
 			newItems = [...addedItems, { ...product, count: 1 }];
 		}
@@ -151,6 +158,8 @@ const ProductList = () => {
 			});
 		}
 	};
+
+	console.log('addedItems.length', addedItems.length);
 
 	const getCurrentCount = (id) =>
 		addedItems.find((item) => item.id === id)?.count || 0;
