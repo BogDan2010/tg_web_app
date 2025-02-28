@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
 import ProductItem from '../ProductItem/ProductItem';
@@ -73,10 +74,28 @@ const getTotalPrice = (items = []) => {
 
 const ProductList = () => {
 	const dispatch = useDispatch();
-
+	const navigate = useNavigate();
 	const products = useSelector((state) => state.categories.dataProducts);
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
+
+	useEffect(() => {
+		const handleBack = () => {
+			navigate(-1); // Навигация назад
+		};
+
+		// Показываем кнопку при монтировании
+		tg.BackButton.show();
+
+		// Добавляем обработчик
+		tg.BackButton.onClick(handleBack);
+
+		// Убираем кнопку и обработчик при демонтировании
+		return () => {
+			tg.BackButton.offClick(handleBack);
+			tg.BackButton.hide();
+		};
+	}, [navigate]);
 
 	// console.log('ProductList products', products);
 
