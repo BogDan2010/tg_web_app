@@ -118,9 +118,10 @@ const ProductList = () => {
 		const data = {
 			products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
+			queryId,
 		};
 		tg.sendData(JSON.stringify(data));
-	}, []);
+	}, [addedItems]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
