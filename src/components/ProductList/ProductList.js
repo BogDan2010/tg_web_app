@@ -120,7 +120,7 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 		};
 		tg.sendData(JSON.stringify(data));
-	}, [addedItems]);
+	}, [addedItems, getTotalPrice]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
