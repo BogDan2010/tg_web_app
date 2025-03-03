@@ -14,6 +14,7 @@
 	height: 130px;
 	margin-bottom: 5px;
 	background-color: white;
+	border-radius: 20px;
 }
 .img {
 	width: 100%;
@@ -39,7 +40,7 @@
 	color: var(--tg-theme-text-color);
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: -5;
 	width: 30px;
 	height: 30px;
 	border-radius: 50px;
