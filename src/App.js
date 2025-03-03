@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
+import Backet from './components/Backet/Backet';
 import CategoryList from './components/CategoryList/CategoryList';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
@@ -23,7 +24,8 @@ function App() {
 					<Route index path={'/'} element={<CategoryList />} />
 					<Route path={'/subcategory'} element={<SubCategoryList />} />
 					<Route path={'/products'} element={<ProductList />} />
-					<Route path={'form'} element={<Form />} />
+					<Route path={'/form'} element={<Form />} />
+					<Route path={'/backet'} element={<Backet />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

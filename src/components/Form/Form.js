@@ -11,7 +11,7 @@ const Form = () => {
 	const [subject, setSubject] = useState('physical');
 	const { tg } = useTelegram();
 
-	const orderData = location.state.data;
+	const orderData = location?.state?.data;
 
 	const onSendData = useCallback(async () => {
 		// const data = {
