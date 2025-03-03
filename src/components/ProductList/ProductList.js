@@ -108,15 +108,14 @@ const ProductList = () => {
 			queryId,
 			initDataUnsafe: tg.initDataUnsafe,
 		};
-		fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
-			.then((res) => res.json())
-			.then((data) => navigate('/form'));
+		// fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(data),
+		// });
+		navigate('/form', { state: { data } });
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {
