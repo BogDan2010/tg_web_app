@@ -114,7 +114,9 @@ const ProductList = () => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(data),
-		}).then((res) => navigate('/form'));
+		})
+			.then((res) => res.json())
+			.then((data) => navigate('/form'));
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {
