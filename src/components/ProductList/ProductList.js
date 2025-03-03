@@ -108,7 +108,7 @@ const ProductList = () => {
 			queryId,
 			initDataUnsafe: tg.initDataUnsafe,
 		};
-		fetch('https://6e53-68-183-154-121.ngrok-free.app/web-data', {
+		fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
