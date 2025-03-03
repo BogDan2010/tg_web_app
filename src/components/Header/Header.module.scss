@@ -8,7 +8,7 @@
 	& .button {
 		border: none;
 		color: green;
-
+		background-color: var(--tg-theme-color);
 		&:hover {
 			transform: scale(1.1);
 		}
