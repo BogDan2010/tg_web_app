@@ -52,11 +52,11 @@ const Backet = () => {
 		};
 	}, [onSendData]);
 
-	useEffect(() => {
-		tg.MainButton.setParams({
-			text: 'Отпрвить данные',
-		});
-	}, []);
+	// useEffect(() => {
+	// 	tg.MainButton.setParams({
+	// 		text: 'Отпрвить данные',
+	// 	});
+	// }, []);
 
 	return (
 		<div className={styles.container}>
