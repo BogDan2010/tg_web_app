@@ -20,19 +20,14 @@ const Form = () => {
 		// 	subject,
 		// };
 
-		const response = await fetch(
-			'https://81eb-68-183-154-121.ngrok-free.app/web-data',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(orderData),
-			}
-		);
+		await fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(orderData),
+		});
 
-		const res = response.json();
-		if (res.status === 'success') tg.close();
 		// tg.sendData(JSON.stringify(orderData));
 	}, [orderData]);
 
