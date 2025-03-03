@@ -27,8 +27,8 @@ const Form = () => {
 		// 	},
 		// 	body: JSON.stringify(orderData),
 		// });
-
-		tg.sendData(JSON.stringify(orderData));
+		tg.sendMessage(JSON.stringify(orderData));
+		// tg.sendData(JSON.stringify(orderData));
 	}, [orderData]);
 
 	useEffect(() => {
