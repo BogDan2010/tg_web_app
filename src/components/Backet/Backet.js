@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
 import styles from './Backet.module.scss';
 
 const Backet = () => {
+	const navigate = useNavigate();
 	const location = useLocation();
 	const orderData = location?.state?.data;
 	const { tg } = useTelegram();
+
 	const onSendData = useCallback(async () => {
 		// const data = {
 		// 	city,
@@ -24,6 +26,24 @@ const Backet = () => {
 			body: JSON.stringify(orderData),
 		});
 	}, [orderData]);
+
+	useEffect(() => {
+		const handleBack = () => {
+			navigate('/'); // Навигация назад
+		};
+
+		// Показываем кнопку при монтировании
+		tg.BackButton.show();
+
+		// Добавляем обработчик
+		tg.BackButton.onClick(handleBack);
+
+		// Убираем кнопку и обработчик при демонтировании
+		return () => {
+			tg.BackButton.offClick(handleBack);
+			tg.BackButton.hide();
+		};
+	}, [navigate]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
