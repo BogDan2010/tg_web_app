@@ -1,23 +1,35 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useLocation } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Form.module.scss';
 
 const Form = () => {
+	const location = useLocation();
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [subject, setSubject] = useState('physical');
 	const { tg } = useTelegram();
 
-	const onSendData = useCallback(() => {
-		const data = {
-			city,
-			street,
-			subject,
-		};
+	const orderData = location.state.data;
 
-		tg.sendData(JSON.stringify(data));
-	}, [city, street, subject]);
+	const onSendData = useCallback(() => {
+		// const data = {
+		// 	city,
+		// 	street,
+		// 	subject,
+		// };
+
+		fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(orderData),
+		});
+
+		// tg.sendData(JSON.stringify(data));
+	}, [orderData]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
