@@ -11,6 +11,7 @@ const ProductItem = ({ product, onChangeAdded, className, count }) => {
 
 	return (
 		<div className={`${styles.product} ${className}`}>
+			<div className={styles.count}>{`${count}`}</div>
 			<div className={styles.imgContainer}>
 				<img className={styles.img} src={`${GARRYS_API_URL}${product.image}`} />
 			</div>
@@ -19,7 +20,6 @@ const ProductItem = ({ product, onChangeAdded, className, count }) => {
 				<span>
 					Стоимость: <b>{product.price}</b>
 				</span>
-				<div className={styles.count}>{`${count}`}</div>
 			</div>
 			{count === 0 ? (
 				<Button
