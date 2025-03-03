@@ -5,7 +5,6 @@ import './App.css';
 import Backet from './components/Backet/Backet';
 import CategoryList from './components/CategoryList/CategoryList';
 import Form from './components/Form/Form';
-import Header from './components/Header/Header';
 import ProductList from './components/ProductList/ProductList';
 import SubCategoryList from './components/SubCategoryList/SubCategoryList';
 import { useTelegram } from './hooks/useTelegram';
@@ -19,7 +18,7 @@ function App() {
 	return (
 		<div className='App'>
 			<BrowserRouter>
-				<Header />
+				{/* <Header /> */}
 				<Routes>
 					<Route index path={'/'} element={<CategoryList />} />
 					<Route path={'/subcategory'} element={<SubCategoryList />} />

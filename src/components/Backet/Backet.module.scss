@@ -1,0 +1,6 @@
+.container {
+	background: var(--tg-theme-color);
+	& .totalPrice {
+		color: var(--tg-theme-text-color);
+	}
+}

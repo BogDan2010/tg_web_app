@@ -115,7 +115,7 @@ const ProductList = () => {
 		// 	},
 		// 	body: JSON.stringify(data),
 		// });
-		navigate('/form', { state: { data } });
+		navigate('/backet', { state: { data } });
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {
