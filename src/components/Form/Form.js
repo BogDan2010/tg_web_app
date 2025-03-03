@@ -20,14 +20,14 @@ const Form = () => {
 		// 	subject,
 		// };
 
-		// fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify(orderData),
-		// });
-		tg.sendMessage(JSON.stringify(orderData));
+		fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(orderData),
+		});
+
 		// tg.sendData(JSON.stringify(orderData));
 	}, [orderData]);
 
