@@ -3,6 +3,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
+import OrderList from '../OrderList/OrderList';
 import styles from './Backet.module.scss';
 
 const Backet = () => {
@@ -10,6 +11,8 @@ const Backet = () => {
 	const location = useLocation();
 	const orderData = location?.state?.data;
 	const { tg } = useTelegram();
+
+	console.log('orderData', orderData);
 
 	const onSendData = useCallback(async () => {
 		// const data = {
@@ -61,17 +64,8 @@ const Backet = () => {
 	return (
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
-			{orderData?.map((el) => {
-				return (
-					<div
-						style={{ backgroundColor: 'red', width: '100%', height: '30px' }}
-					>
-						{el.id}
-					</div>
-				);
-			})}
 
-			{/* <OrderList orderData={orderData} /> */}
+			<OrderList orderData={orderData} />
 		</div>
 	);
 };

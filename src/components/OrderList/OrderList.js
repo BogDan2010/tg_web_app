@@ -18,7 +18,7 @@ const OrderList = ({ orderData }) => {
 	// ];
 	return (
 		<div className={styles.container}>
-			{orderData?.map((product) => (
+			{orderData?.products?.map((product) => (
 				<OrderListItem key={product.id} product={product} />
 			))}
 		</div>
