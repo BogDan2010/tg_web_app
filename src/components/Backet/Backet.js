@@ -3,7 +3,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
-import OrderList from '../OrderList/OrderList';
+// import OrderList from '../OrderList/OrderList';
 import styles from './Backet.module.scss';
 
 const Backet = () => {
@@ -63,7 +63,7 @@ const Backet = () => {
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
 
-			<OrderList orderData={orderData} />
+			{/* <OrderList orderData={orderData} /> */}
 		</div>
 	);
 };
