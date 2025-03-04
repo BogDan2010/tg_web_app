@@ -3,6 +3,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
+import OrderList from '../OrderList/OrderList';
 import styles from './Backet.module.scss';
 
 const Backet = () => {
@@ -18,7 +19,7 @@ const Backet = () => {
 		// 	subject,
 		// };
 
-		await fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+		await fetch('https://d7f0-68-183-154-121.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,6 +63,7 @@ const Backet = () => {
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
 			<span className={styles.totalPrice}>{orderData?.totalPrice}</span>
+			<OrderList orderData={orderData} />
 		</div>
 	);
 };

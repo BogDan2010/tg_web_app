@@ -99,7 +99,7 @@ const ProductList = () => {
 		};
 	}, [navigate]);
 
-	// console.log('ProductList products', products);
+	console.log('ProductList products', addedItems);
 
 	const onSendData = useCallback(() => {
 		const data = {
@@ -168,7 +168,6 @@ const ProductList = () => {
 			tg.MainButton.show();
 			tg.MainButton.setParams({
 				text: `Купить ${getTotalPrice(newItems)}`,
-				backgroundColor: '#1C7C00',
 			});
 		}
 	};
