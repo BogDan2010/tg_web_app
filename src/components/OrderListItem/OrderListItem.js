@@ -14,10 +14,14 @@ const OrderListItem = ({ product }) => {
 				/>
 			</div>
 			<div className={styles.productDataContainer}>
-				<span className={styles.productName}></span>
-				<span className={styles.productCount}></span>
+				<span className={styles.productName}>{product.name}</span>
+				<span className={styles.productCount}>{`${product.count}x`}</span>
 			</div>
-			<div className={styles.priceContainer}></div>
+			<div className={styles.priceContainer}>
+				<span className={styles.price}>{`${
+					product.price * product.count
+				} p.`}</span>
+			</div>
 		</div>
 	);
 };
