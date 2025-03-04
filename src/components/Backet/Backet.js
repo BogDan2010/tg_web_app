@@ -62,7 +62,7 @@ const Backet = () => {
 	return (
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
-			<span className={styles.totalPrice}>{orderData?.totalPrice}</span>
+
 			<OrderList orderData={orderData} />
 		</div>
 	);
