@@ -115,7 +115,7 @@ const ProductList = () => {
 		// 	},
 		// 	body: JSON.stringify(data),
 		// });
-		navigate('/backet', { state: { data } });
+		navigate('/backet', { state: { data: data } });
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {
@@ -171,8 +171,6 @@ const ProductList = () => {
 			});
 		}
 	};
-
-	console.log('addedItems.length', addedItems.length);
 
 	const getCurrentCount = (id) =>
 		addedItems.find((item) => item.id === id)?.count || 0;
