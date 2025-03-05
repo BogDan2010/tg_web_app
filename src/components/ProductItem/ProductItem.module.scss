@@ -6,7 +6,9 @@
 	text-align: center;
 	align-items: center;
 	position: relative;
-	min-height: max-content;
+	// height: 100%;
+	background-color: red;
+	justify-content: space-between;
 }
 
 .imgContainer {
@@ -23,13 +25,14 @@
 }
 
 .name {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	margin-bottom: 5px;
 	color: var(--tg-theme-text-color);
+	// height: 30%;
 }
 
 .price {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	margin-bottom: 5px;
 	color: var(--tg-theme-text-color);
 }
