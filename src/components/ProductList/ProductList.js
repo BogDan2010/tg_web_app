@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
+import { setAddedItems } from '../../store/slices/backetSlice';
 import ProductItem from '../ProductItem/ProductItem';
 import styles from './ProductList.module.scss';
 
@@ -76,7 +77,8 @@ const ProductList = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const products = useSelector((state) => state.categories.dataProducts);
-	const [addedItems, setAddedItems] = useState([]);
+	const addedItems = useSelector((state) => state.backet.data);
+	// const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
 
 	// console.log('tg.initDataUnsafe?', tg.initDataUnsafe);
@@ -160,7 +162,7 @@ const ProductList = () => {
 		} else {
 			newItems = [...addedItems, { ...product, count: 1 }];
 		}
-		setAddedItems(newItems);
+		dispatch(setAddedItems(newItems));
 
 		if (newItems.length === 0) {
 			tg.MainButton.hide();
