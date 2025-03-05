@@ -89,7 +89,7 @@ const Form = () => {
 						onChange={onChangeHouse}
 						type='number'
 						className={styles.input}
-						style={{ width: '45%' }}
+						style={{ width: '45%', marginRight: 5 }}
 					/>
 				</div>
 				<div className={styles.formItem}>
