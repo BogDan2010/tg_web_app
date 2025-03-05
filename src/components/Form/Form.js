@@ -10,7 +10,7 @@ const Form = () => {
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
 	const [entrance, setEntrance] = useState('');
-	const [subject, setSubject] = useState('physical');
+	const [payment, setPayment] = useState('cash');
 	const { tg } = useTelegram();
 
 	const orderData = location?.state?.data;
@@ -47,18 +47,18 @@ const Form = () => {
 	}, []);
 
 	useEffect(() => {
-		if (!city || !street) {
+		if (!city || !street || !house) {
 			tg.MainButton.hide();
 		} else {
 			tg.MainButton.show();
 		}
-	}, [city, street]);
+	}, [city, street, house]);
 
 	const onChangeCity = (e) => setCity(e.target.value);
 	const onChangeStreet = (e) => setStreet(e.target.value);
 	const onChangeHouse = (e) => setHouse(e.target.value);
 	const onChangeEntrance = (e) => setEntrance(e.target.value);
-	const onChangeSubject = (e) => setSubject(e.target.value);
+	const onChangePayment = (e) => setPayment(e.target.value);
 
 	return (
 		<div className={styles.form}>
@@ -69,7 +69,6 @@ const Form = () => {
 					value={city}
 					onChange={onChangeCity}
 					type='text'
-					// placeholder={'Город'}
 					className={styles.input}
 				/>
 			</div>
@@ -79,7 +78,6 @@ const Form = () => {
 					value={street}
 					onChange={onChangeStreet}
 					type='text'
-					// placeholder={'Улица'}
 					className={styles.input}
 				/>
 			</div>
@@ -90,7 +88,6 @@ const Form = () => {
 						value={house}
 						onChange={onChangeHouse}
 						type='number'
-						// placeholder={'Дом'}
 						className={styles.input}
 						style={{ width: '45%' }}
 					/>
@@ -101,20 +98,22 @@ const Form = () => {
 						value={entrance}
 						onChange={onChangeEntrance}
 						type='number'
-						// placeholder={'Подъезд'}
 						className={styles.input}
 						style={{ width: '45%' }}
 					/>
 				</div>
 			</div>
-			<select
-				value={subject}
-				onChange={onChangeSubject}
-				className={styles.select}
-			>
-				<option value={'physical'}>Физ. лицо</option>
-				<option value={'legal'}>Юр. лицо</option>
-			</select>
+			<div className={styles.formItem}>
+				<label>Оплата:</label>
+				<select
+					value={payment}
+					onChange={onChangePayment}
+					className={styles.select}
+				>
+					<option value={'card_on_delivery'}>Картой курьеру</option>
+					<option value={'cash'}>Наличными</option>
+				</select>
+			</div>
 		</div>
 	);
 };
