@@ -15,7 +15,7 @@ const SubCategoryList = () => {
 	const dataProducts = useSelector((state) => state.categories.dataProducts);
 
 	useEffect(() => {
-		if (subCategory.items.length === 0) {
+		if (subCategory.items.length >= 0) {
 			dispatch(getCategoryProductItems(subCategory.id));
 			navigate('/products');
 		}

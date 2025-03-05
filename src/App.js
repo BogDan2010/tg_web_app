@@ -6,7 +6,6 @@ import Backet from './components/Basket/Basket';
 import CategoryList from './components/CategoryList/CategoryList';
 import Form from './components/Form/Form';
 import ProductList from './components/ProductList/ProductList';
-import SubCategoryList from './components/SubCategoryList/SubCategoryList';
 import { useTelegram } from './hooks/useTelegram';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
 				{/* <Header /> */}
 				<Routes>
 					<Route index path={'/'} element={<CategoryList />} />
-					<Route path={'/subcategory'} element={<SubCategoryList />} />
+					{/* <Route path={'/subcategory'} element={<SubCategoryList />} /> */}
 					<Route path={'/products'} element={<ProductList />} />
 					<Route path={'/form'} element={<Form />} />
 					<Route path={'/basket'} element={<Backet />} />
