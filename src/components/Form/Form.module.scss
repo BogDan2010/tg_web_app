@@ -11,11 +11,11 @@
 	align-items: center;
 	margin-top: 5px;
 	margin-bottom: 10px;
+	border-bottom: 1px solid var(--tg-theme-section-separator-color);
 	& label {
 		font-size: 14px;
 		padding: 10px;
 		color: var(--tg-theme-text-color);
-		border-bottom: 1px solid var(--tg-theme-section-separator-color);
 	}
 }
 
@@ -25,7 +25,6 @@
 	background-color: var(--tg-theme-bg-color);
 	color: var(--tg-theme-text-color);
 	border: none;
-	border-bottom: 1px solid var(--tg-theme-section-separator-color);
 }
 .select {
 	padding: 10px;
