@@ -84,22 +84,28 @@ const Form = () => {
 				/>
 			</div>
 			<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-				<input
-					value={house}
-					onChange={onChangeHouse}
-					type='number'
-					placeholder={'Дом'}
-					className={styles.input}
-					style={{ width: '45%' }}
-				/>
-				<input
-					value={entrance}
-					onChange={onChangeEntrance}
-					type='number'
-					placeholder={'Подъезд'}
-					className={styles.input}
-					style={{ width: '45%' }}
-				/>
+				<div className={styles.formItem}>
+					<label>Дом:</label>
+					<input
+						value={house}
+						onChange={onChangeHouse}
+						type='number'
+						// placeholder={'Дом'}
+						className={styles.input}
+						style={{ width: '45%' }}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<label>Подъезд:</label>
+					<input
+						value={entrance}
+						onChange={onChangeEntrance}
+						type='number'
+						// placeholder={'Подъезд'}
+						className={styles.input}
+						style={{ width: '45%' }}
+					/>
+				</div>
 			</div>
 			<select
 				value={subject}
