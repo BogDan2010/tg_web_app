@@ -12,12 +12,8 @@
 	& label {
 		font-size: 14px;
 		margin-right: 10px;
-		// padding: 0 10px;
 		color: var(--tg-theme-text-color);
-		// border: 1px solid var(--tg-theme-text-color);
-		// border-radius: 20px;
-		// background-color: red;
-	}
+		border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 
 .input {
@@ -27,6 +23,8 @@
 	margin-bottom: 10px;
 	background-color: var(--tg-theme-bg-color);
 	color: var(--tg-theme-text-color);
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .select {
 	padding: 10px;
