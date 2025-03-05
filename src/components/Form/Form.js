@@ -8,6 +8,8 @@ const Form = () => {
 	const location = useLocation();
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
+	const [house, setHouse] = useState('');
+	const [entrance, setEntrance] = useState('');
 	const [subject, setSubject] = useState('physical');
 	const { tg } = useTelegram();
 
@@ -54,26 +56,51 @@ const Form = () => {
 
 	const onChangeCity = (e) => setCity(e.target.value);
 	const onChangeStreet = (e) => setStreet(e.target.value);
+	const onChangeHouse = (e) => setHouse(e.target.value);
+	const onChangeEntrance = (e) => setEntrance(e.target.value);
 	const onChangeSubject = (e) => setSubject(e.target.value);
 
 	return (
 		<div className={styles.form}>
 			<h3>Введите ваши данные</h3>
-			<label>Город:</label>
-			<input
-				value={city}
-				onChange={onChangeCity}
-				type='text'
-				placeholder={'Город'}
-				className={styles.input}
-			/>
-			<input
-				value={street}
-				onChange={onChangeStreet}
-				type='text'
-				placeholder={'Улица'}
-				className={styles.input}
-			/>
+			<div className={styles.formItem}>
+				<label>Город:</label>
+				<input
+					value={city}
+					onChange={onChangeCity}
+					type='text'
+					placeholder={'Город'}
+					className={styles.input}
+				/>
+			</div>
+			<div className={styles.formItem}>
+				<label>Улица:</label>
+				<input
+					value={street}
+					onChange={onChangeStreet}
+					type='text'
+					placeholder={'Улица'}
+					className={styles.input}
+				/>
+			</div>
+			<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+				<input
+					value={house}
+					onChange={onChangeHouse}
+					type='number'
+					placeholder={'Дом'}
+					className={styles.input}
+					style={{ width: '45%' }}
+				/>
+				<input
+					value={entrance}
+					onChange={onChangeEntrance}
+					type='number'
+					placeholder={'Подъезд'}
+					className={styles.input}
+					style={{ width: '45%' }}
+				/>
+			</div>
 			<select
 				value={subject}
 				onChange={onChangeSubject}
