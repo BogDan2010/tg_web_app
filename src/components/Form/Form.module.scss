@@ -6,17 +6,16 @@
 }
 
 .formItem {
-	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	& label {
-		position: absolute;
 		font-size: 14px;
-		top: -5px;
-		left: 10px;
-		z-index: 999;
-		padding: 0 10px;
+		margin-right: 10px;
+		// padding: 0 10px;
 		color: var(--tg-theme-text-color);
-		border: 1px solid var(--tg-theme-text-color);
-		border-radius: 20px;
+		// border: 1px solid var(--tg-theme-text-color);
+		// border-radius: 20px;
 		// background-color: red;
 	}
 }
@@ -26,7 +25,8 @@
 	padding: 10px;
 	margin-top: 5px;
 	margin-bottom: 10px;
-	z-index: -1;
+	background-color: var(--tg-theme-bg-color);
+	color: var(--tg-theme-text-color);
 }
 .select {
 	padding: 10px;
