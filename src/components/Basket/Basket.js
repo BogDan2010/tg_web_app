@@ -4,9 +4,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
 import OrderList from '../OrderList/OrderList';
-import styles from './Backet.module.scss';
+import styles from './Basket.module.scss';
 
-const Backet = () => {
+const Basket = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const orderData = location?.state?.data;
@@ -70,4 +70,4 @@ const Backet = () => {
 	);
 };
 
-export default Backet;
+export default Basket;

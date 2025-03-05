@@ -4,8 +4,8 @@ const initialState = {
 	data: null,
 };
 
-const backetSlice = createSlice({
-	name: 'backet',
+const basketSlice = createSlice({
+	name: 'basket',
 	initialState,
 	reducers: {
 		setAddedItems(state, action) {
@@ -14,6 +14,6 @@ const backetSlice = createSlice({
 	},
 });
 
-export const { setAddedItems } = backetSlice.actions;
+export const { setAddedItems } = basketSlice.actions;
 
-export default backetSlice.reducer;
+export default basketSlice.reducer;

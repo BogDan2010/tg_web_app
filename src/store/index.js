@@ -3,8 +3,11 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import categoriesReducer from './slices/categoriesSlice';
 
+import basketReducer from './slices/basketSlice';
+
 const appReducer = combineReducers({
 	categories: categoriesReducer,
+	basket: basketReducer,
 });
 
 const rootReducer = (state, action) => {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
-import { setAddedItems } from '../../store/slices/backetSlice';
+import { setAddedItems } from '../../store/slices/basketSlice';
 import ProductItem from '../ProductItem/ProductItem';
 import styles from './ProductList.module.scss';
 
@@ -77,7 +77,7 @@ const ProductList = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const products = useSelector((state) => state.categories.dataProducts);
-	const addedItems = useSelector((state) => state.backet.data);
+	const addedItems = useSelector((state) => state.basket.data);
 	// const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
 
@@ -117,7 +117,7 @@ const ProductList = () => {
 		// 	},
 		// 	body: JSON.stringify(data),
 		// });
-		navigate('/backet', { state: { data: data } });
+		navigate('/basket', { state: { data: data } });
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {
@@ -141,7 +141,7 @@ const ProductList = () => {
 	}, []);
 
 	const onChangeAdded = (product, flag) => {
-		const alreadyAdded = addedItems.find((item) => item.id === product.id);
+		const alreadyAdded = addedItems?.find((item) => item.id === product.id);
 		let newItems = [];
 
 		if (alreadyAdded) {
@@ -175,7 +175,7 @@ const ProductList = () => {
 	};
 
 	const getCurrentCount = (id) =>
-		addedItems.find((item) => item.id === id)?.count || 0;
+		addedItems?.find((item) => item.id === id)?.count || 0;
 
 	return (
 		<div className={styles.list}>
