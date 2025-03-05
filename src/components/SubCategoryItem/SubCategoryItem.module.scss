@@ -1,0 +1,10 @@
+.container {
+	border: 1px solid var(--tg-theme-text-color);
+	padding: 5px 15px;
+	margin-right: 10px;
+	border-radius: 20px;
+	& .text {
+		color: var(--tg-theme-text-color);
+		font-size: 16px;
+	}
+}

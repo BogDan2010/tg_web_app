@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
 import { setAddedItems } from '../../store/slices/basketSlice';
 import ProductItem from '../ProductItem/ProductItem';
+import SubCategoryList from '../SubCategoryList/SubCategoryList';
 import styles from './ProductList.module.scss';
 
 // const products = [
@@ -76,12 +77,14 @@ const getTotalPrice = (items = []) => {
 const ProductList = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const location = useLocation();
+	const subCategory = location?.state?.subCategory;
 	const products = useSelector((state) => state.categories.dataProducts);
 	const addedItems = useSelector((state) => state.basket.data);
-	// const [addedItems, setAddedItems] = useState([]);
-	const { tg, queryId } = useTelegram();
 
-	// console.log('tg.initDataUnsafe?', tg.initDataUnsafe);
+	console.log('subCategory', subCategory);
+
+	const { tg, queryId } = useTelegram();
 
 	useEffect(() => {
 		const handleBack = () => {
@@ -101,7 +104,7 @@ const ProductList = () => {
 		};
 	}, [navigate]);
 
-	console.log('ProductList products', addedItems);
+	// console.log('ProductList products', addedItems);
 
 	const onSendData = useCallback(() => {
 		const data = {
@@ -178,15 +181,21 @@ const ProductList = () => {
 		addedItems?.find((item) => item.id === id)?.count || 0;
 
 	return (
-		<div className={styles.list}>
-			{products?.map((item) => (
-				<ProductItem
-					count={getCurrentCount(item.id)}
-					product={item}
-					onChangeAdded={onChangeAdded}
-					className={styles.item}
-				/>
-			))}
+		<div>
+			{subCategory?.items?.length > 0 && (
+				<SubCategoryList items={subCategory?.items} />
+			)}
+			<div className={styles.list}>
+				{products?.map((item) => (
+					<ProductItem
+						key={item.id}
+						count={getCurrentCount(item.id)}
+						product={item}
+						onChangeAdded={onChangeAdded}
+						className={styles.item}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

@@ -17,7 +17,7 @@ const CategoryList = () => {
 	return (
 		<div className={styles.list}>
 			{categories?.map((item) => (
-				<CategoryItem subCategory={item} />
+				<CategoryItem subCategory={item} key={item.id} />
 			))}
 		</div>
 	);
