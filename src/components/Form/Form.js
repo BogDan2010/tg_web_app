@@ -69,7 +69,7 @@ const Form = () => {
 					value={city}
 					onChange={onChangeCity}
 					type='text'
-					placeholder={'Город'}
+					// placeholder={'Город'}
 					className={styles.input}
 				/>
 			</div>
@@ -79,7 +79,7 @@ const Form = () => {
 					value={street}
 					onChange={onChangeStreet}
 					type='text'
-					placeholder={'Улица'}
+					// placeholder={'Улица'}
 					className={styles.input}
 				/>
 			</div>
