@@ -13,6 +13,7 @@ const Form = () => {
 	const [entrance, setEntrance] = useState('');
 	const [payment, setPayment] = useState('cash');
 	const [phone, setPhone] = useState('');
+	const [time, setTime] = useState('');
 	const { tg } = useTelegram();
 
 	const orderData = location?.state?.data;
@@ -62,6 +63,7 @@ const Form = () => {
 	const onChangeEntrance = (e) => setEntrance(e.target.value);
 	const onChangePayment = (e) => setPayment(e.target.value);
 	const onChangePhone = (e) => setPhone(e.target.value);
+	const onChangeTime = (e) => setTime(e.target.value);
 
 	return (
 		<div className={styles.form}>
@@ -120,7 +122,7 @@ const Form = () => {
 			<div className={styles.formItem}>
 				<label>Номер телефона:</label>
 				<input
-					value={phone}
+					value={phoneInput(phone)}
 					onChange={onChangePhone}
 					type='tel'
 					className={styles.input}
@@ -129,9 +131,9 @@ const Form = () => {
 			<div className={styles.formItem}>
 				<label>Доставка ко времени:</label>
 				<input
-					value={phoneInput(phone)}
-					onChange={onChangePhone}
-					type='tel'
+					value={time}
+					onChange={onChangeTime}
+					type='time'
 					className={styles.input}
 				/>
 			</div>
