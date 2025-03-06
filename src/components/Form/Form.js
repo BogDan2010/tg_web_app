@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
 import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
@@ -7,7 +7,7 @@ import styles from './Form.module.scss';
 
 const Form = () => {
 	const location = useLocation();
-	const inputRef = useRef(null);
+
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
@@ -15,6 +15,7 @@ const Form = () => {
 	const [payment, setPayment] = useState('cash');
 	const [phone, setPhone] = useState('');
 	const [time, setTime] = useState('');
+	const [humanCount, setHumanCount] = useState('');
 	const { tg } = useTelegram();
 
 	const orderData = location?.state?.data;
@@ -70,6 +71,7 @@ const Form = () => {
 		setPhone(formattedPhone);
 	};
 	const onChangeTime = (e) => setTime(e.target.value);
+	const onChangeHumanCount = (e) => setHumanCount(e.target.value);
 
 	return (
 		<div className={styles.form}>
@@ -115,6 +117,15 @@ const Form = () => {
 				</div>
 			</div>
 			<div className={styles.formItem}>
+				<label>Номер телефона:</label>
+				<input
+					value={phone}
+					onChange={onChangePhone}
+					type='tel'
+					className={styles.input}
+				/>
+			</div>
+			<div className={styles.formItem}>
 				<label>Оплата:</label>
 				<select
 					value={payment}
@@ -125,16 +136,7 @@ const Form = () => {
 					<option value={'cash'}>Наличными</option>
 				</select>
 			</div>
-			<div className={styles.formItem}>
-				<label>Номер телефона:</label>
-				<input
-					value={phone}
-					onChange={onChangePhone}
-					type='tel'
-					className={styles.input}
-					ref={inputRef}
-				/>
-			</div>
+
 			<div className={styles.formItem}>
 				<label>Доставка ко времени:</label>
 				<input
@@ -143,6 +145,18 @@ const Form = () => {
 					type='time'
 					className={styles.input}
 				/>
+			</div>
+			<div className={styles.formItem}>
+				<label>Количество персон:</label>
+				<select
+					onChange={onChangeHumanCount}
+					value={humanCount}
+					className={styles.select}
+				>
+					{Array.from({ length: 5 }).map((_, i) => {
+						return <option value={String(i)}>{i + 1}</option>;
+					})}
+				</select>
 			</div>
 		</div>
 	);
