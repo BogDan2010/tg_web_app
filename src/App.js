@@ -15,8 +15,19 @@ function App() {
 	}, []);
 
 	useEffect(() => {
+		const handleClick = () => {
+			console.log('SettingsButton clicked!!!');
+		};
+
+		// Показываем кнопку при монтировании
 		tg.SettingsButton.show();
+
+		// Добавляем обработчик
+		tg.SettingsButton.onClick(handleClick);
+
+		// Убираем кнопку и обработчик при демонтировании
 		return () => {
+			tg.SettingsButton.offClick(handleClick);
 			tg.SettingsButton.hide();
 		};
 	}, []);
