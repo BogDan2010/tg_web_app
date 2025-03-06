@@ -1,12 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
-import { phoneInput } from '../../helpers/phoneInput';
+import {
+	formatPhoneNumber,
+	getCursorPosition,
+} from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Form.module.scss';
 
 const Form = () => {
 	const location = useLocation();
+	const inputRef = useRef(null);
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
@@ -62,7 +66,20 @@ const Form = () => {
 	const onChangeHouse = (e) => setHouse(e.target.value);
 	const onChangeEntrance = (e) => setEntrance(e.target.value);
 	const onChangePayment = (e) => setPayment(e.target.value);
-	const onChangePhone = (e) => setPhone(e.target.value);
+	const onChangePhone = (e) => {
+		const input = e.target.value;
+		const formattedPhone = formatPhoneNumber(input); // Форматируем номер
+
+		setPhone(formattedPhone);
+
+		// Устанавливаем курсор на правильную позицию
+		const cursorPosition = getCursorPosition(input.replace(/\D/g, '').length);
+		setTimeout(() => {
+			if (inputRef.current) {
+				inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
+			}
+		}, 0);
+	};
 	const onChangeTime = (e) => setTime(e.target.value);
 
 	return (
@@ -122,10 +139,11 @@ const Form = () => {
 			<div className={styles.formItem}>
 				<label>Номер телефона:</label>
 				<input
-					value={phoneInput(phone)}
+					value={phone}
 					onChange={onChangePhone}
 					type='tel'
 					className={styles.input}
+					ref={inputRef}
 				/>
 			</div>
 			<div className={styles.formItem}>
