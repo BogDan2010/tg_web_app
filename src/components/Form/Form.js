@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
+import { phoneInput } from '../../helpers/phoneInput';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Form.module.scss';
 
@@ -11,6 +12,7 @@ const Form = () => {
 	const [house, setHouse] = useState('');
 	const [entrance, setEntrance] = useState('');
 	const [payment, setPayment] = useState('cash');
+	const [phone, setPhone] = useState('');
 	const { tg } = useTelegram();
 
 	const orderData = location?.state?.data;
@@ -59,6 +61,7 @@ const Form = () => {
 	const onChangeHouse = (e) => setHouse(e.target.value);
 	const onChangeEntrance = (e) => setEntrance(e.target.value);
 	const onChangePayment = (e) => setPayment(e.target.value);
+	const onChangePhone = (e) => setPhone(e.target.value);
 
 	return (
 		<div className={styles.form}>
@@ -113,6 +116,24 @@ const Form = () => {
 					<option value={'card_on_delivery'}>Картой курьеру</option>
 					<option value={'cash'}>Наличными</option>
 				</select>
+			</div>
+			<div className={styles.formItem}>
+				<label>Номер телефона:</label>
+				<input
+					value={phone}
+					onChange={onChangePhone}
+					type='tel'
+					className={styles.input}
+				/>
+			</div>
+			<div className={styles.formItem}>
+				<label>Доставка ко времени:</label>
+				<input
+					value={phoneInput(phone)}
+					onChange={onChangePhone}
+					type='tel'
+					className={styles.input}
+				/>
 			</div>
 		</div>
 	);
