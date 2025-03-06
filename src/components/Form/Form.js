@@ -16,6 +16,7 @@ const Form = () => {
 	const [phone, setPhone] = useState('');
 	const [time, setTime] = useState('');
 	const [humanCount, setHumanCount] = useState('');
+	const [comment, setComment] = useState('');
 	const { tg } = useTelegram();
 
 	const orderData = location?.state?.data;
@@ -72,6 +73,7 @@ const Form = () => {
 	};
 	const onChangeTime = (e) => setTime(e.target.value);
 	const onChangeHumanCount = (e) => setHumanCount(e.target.value);
+	const onChangeComment = (e) => setComment(e.target.value);
 
 	return (
 		<div className={styles.form}>
@@ -157,6 +159,15 @@ const Form = () => {
 						return <option value={String(i)}>{i + 1}</option>;
 					})}
 				</select>
+			</div>
+			<div className={styles.formItem}>
+				<label>Город:</label>
+				<textarea
+					value={comment}
+					onChangeText={onChangeComment}
+					className={styles.input}
+					rows='3'
+				/>
 			</div>
 		</div>
 	);
