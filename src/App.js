@@ -14,6 +14,13 @@ function App() {
 		tg.ready();
 	}, []);
 
+	useEffect(() => {
+		tg.SettingsButton.show();
+		return () => {
+			tg.SettingsButton.hide();
+		};
+	}, []);
+
 	return (
 		<div className='App'>
 			<BrowserRouter>
