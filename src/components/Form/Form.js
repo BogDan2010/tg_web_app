@@ -1,10 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
-import {
-	formatPhoneNumber,
-	getCursorPosition,
-} from '../../helpers/formatPhoneNumber';
+import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Form.module.scss';
 
@@ -71,14 +68,6 @@ const Form = () => {
 		const formattedPhone = formatPhoneNumber(input); // Форматируем номер
 
 		setPhone(formattedPhone);
-
-		// Устанавливаем курсор на правильную позицию
-		const cursorPosition = getCursorPosition(input.replace(/\D/g, '').length);
-		setTimeout(() => {
-			if (inputRef.current) {
-				inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
-			}
-		}, 0);
 	};
 	const onChangeTime = (e) => setTime(e.target.value);
 

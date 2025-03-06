@@ -5,16 +5,16 @@ export const formatPhoneNumber = (input) => {
 	let formattedPhone = '+7';
 
 	if (cleanedInput.length > 1) {
-		formattedPhone += `(${cleanedInput.slice(1, 4)}`;
+		formattedPhone += `${cleanedInput.slice(1, 4)}`;
 	}
 	if (cleanedInput.length >= 4) {
-		formattedPhone += `) ${cleanedInput.slice(4, 7)}`;
+		formattedPhone += `${cleanedInput.slice(4, 7)}`;
 	}
 	if (cleanedInput.length >= 7) {
-		formattedPhone += `-${cleanedInput.slice(7, 9)}`;
+		formattedPhone += `${cleanedInput.slice(7, 9)}`;
 	}
 	if (cleanedInput.length >= 9) {
-		formattedPhone += `-${cleanedInput.slice(9, 11)}`;
+		formattedPhone += `${cleanedInput.slice(9, 11)}`;
 	}
 
 	return formattedPhone;
