@@ -22,7 +22,7 @@ const Form = () => {
 		// 	subject,
 		// };
 
-		await fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
+		await fetch('https://c9cc-68-183-154-121.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
