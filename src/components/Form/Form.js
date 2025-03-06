@@ -161,7 +161,7 @@ const Form = () => {
 				</select>
 			</div>
 			<div className={styles.formItem}>
-				<label>Город:</label>
+				<label>Комментарий:</label>
 				<textarea
 					value={comment}
 					onChangeText={onChangeComment}
