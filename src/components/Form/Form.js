@@ -33,7 +33,7 @@ const Form = () => {
 			humanCount,
 			comment,
 		};
-
+		console.log('sendData', sendData);
 		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data-order', {
 			method: 'POST',
 			headers: {
