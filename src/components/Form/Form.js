@@ -1,5 +1,5 @@
+import { motion } from 'framer-motion';
 import React, { useCallback, useEffect, useState } from 'react';
-
 import { useLocation } from 'react-router-dom';
 import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
@@ -74,6 +74,11 @@ const Form = () => {
 	const onChangeTime = (e) => setTime(e.target.value);
 	const onChangeHumanCount = (e) => setHumanCount(e.target.value);
 	const onChangeComment = (e) => setComment(e.target.value);
+
+	const containerVariants = {
+		hidden: { opacity: 0, y: -50 },
+		visible: { opacity: 1, y: 0 },
+	};
 
 	return (
 		<div className={styles.form}>
@@ -166,9 +171,19 @@ const Form = () => {
 					value={comment}
 					onChangeText={onChangeComment}
 					className={styles.input}
-					rows='3'
+					rows='2'
 				/>
 			</div>
+			<motion.div
+				className={styles.motionContainer}
+				initial='hidden'
+				animate='visible'
+				variants={containerVariants}
+				transition={{ duration: 0.5 }}
+			>
+				<h1>Добро пожаловать в Telegram Web App!</h1>
+				<p>Это пример анимации на React.js с использованием framer-motion.</p>
+			</motion.div>
 		</div>
 	);
 };
