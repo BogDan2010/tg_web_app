@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
@@ -7,7 +6,6 @@ import styles from './Form.module.scss';
 
 const Form = () => {
 	const location = useLocation();
-	const addedItems = useSelector((state) => state.basket.data);
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
@@ -186,7 +184,7 @@ const Form = () => {
 				<label>Комментарий:</label>
 				<textarea
 					value={comment}
-					onChangeText={onChangeComment}
+					onChange={onChangeComment}
 					className={styles.input}
 					rows='2'
 				/>
