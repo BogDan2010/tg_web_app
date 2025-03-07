@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
@@ -6,7 +7,7 @@ import styles from './Form.module.scss';
 
 const Form = () => {
 	const location = useLocation();
-
+	const addedItems = useSelector((state) => state.basket.data);
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
@@ -18,13 +19,13 @@ const Form = () => {
 	const [comment, setComment] = useState('');
 	const { tg } = useTelegram();
 
-	const orderData = location?.state?.data;
+	// const orderData = location?.state?.data;
 
-	console.log('orderData', orderData, city, street, house, phone, time);
+	// console.log('orderData', addedItems, city, street, house, phone, time);
 
 	const onSendData = useCallback(async () => {
 		const sendData = {
-			orderData: orderData,
+			produccts: addedItems,
 			city,
 			street,
 			house,
@@ -45,7 +46,7 @@ const Form = () => {
 		});
 
 		// tg.sendData(JSON.stringify(orderData));
-	}, [orderData, city, street, house, phone, time]);
+	}, [addedItems, city, street, house, phone, time]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
