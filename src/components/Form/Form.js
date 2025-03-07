@@ -21,7 +21,7 @@ const Form = () => {
 
 	// const orderData = location?.state?.data;
 
-	// console.log('orderData', addedItems, city, street, house, phone, time);
+	console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
 		const sendData = {
