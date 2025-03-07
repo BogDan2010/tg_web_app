@@ -70,7 +70,7 @@ const Form = () => {
 
 	useEffect(() => {
 		tg.MainButton.setParams({
-			text: 'Отпрвить данные',
+			text: 'Отпрвить заказ',
 		});
 	}, []);
 
@@ -124,7 +124,7 @@ const Form = () => {
 					<input
 						value={house}
 						onChange={onChangeHouse}
-						type='number'
+						type='text'
 						className={styles.input}
 						style={{ width: '45%', marginRight: 5 }}
 					/>
