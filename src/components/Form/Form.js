@@ -19,24 +19,26 @@ const Form = () => {
 	const [comment, setComment] = useState('');
 	const { tg } = useTelegram();
 
-	// const orderData = location?.state?.data;
+	const orderData = location?.state?.data;
 
-	console.log('orderData', addedItems);
+	// console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
 		const sendData = {
-			produccts: addedItems,
-			city,
-			street,
-			house,
-			entrance,
-			payment,
-			phone,
-			time,
-			humanCount,
-			comment,
+			orderData,
+			userData: {
+				city,
+				street,
+				house,
+				entrance,
+				payment,
+				phone,
+				time,
+				humanCount,
+				comment,
+			},
 		};
-		console.log('sendData', sendData);
+		// console.log('sendData', sendData);
 		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data-order', {
 			method: 'POST',
 			headers: {
@@ -47,7 +49,7 @@ const Form = () => {
 
 		// tg.sendData(JSON.stringify(orderData));
 	}, [
-		addedItems,
+		orderData,
 		city,
 		street,
 		house,

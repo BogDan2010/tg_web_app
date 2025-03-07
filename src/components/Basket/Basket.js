@@ -20,7 +20,7 @@ const Basket = () => {
 		// 	street,
 		// 	subject,
 		// };
-		navigate('/form');
+		navigate('/form', { state: { data: orderData } });
 		// await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
 		// 	method: 'POST',
 		// 	headers: {
