@@ -20,6 +20,8 @@ const Form = () => {
 
 	const orderData = location?.state?.data;
 
+	console.log('orderData', orderData, city, street, house, phone, time);
+
 	const onSendData = useCallback(async () => {
 		const sendData = {
 			orderData: orderData,
@@ -43,7 +45,7 @@ const Form = () => {
 		});
 
 		// tg.sendData(JSON.stringify(orderData));
-	}, [orderData]);
+	}, [orderData, city, street, house, phone, time]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
