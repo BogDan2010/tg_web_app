@@ -21,18 +21,27 @@ const Form = () => {
 	const orderData = location?.state?.data;
 
 	const onSendData = useCallback(async () => {
-		// const data = {
-		// 	city,
-		// 	street,
-		// 	subject,
-		// };
+		const sendData = {
+			orderData,
+			userData: {
+				city,
+				street,
+				house,
+				entrance,
+				payment,
+				phone,
+				time,
+				humanCount,
+				comment,
+			},
+		};
 
-		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
+		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data-order', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(orderData),
+			body: JSON.stringify(sendData),
 		});
 
 		// tg.sendData(JSON.stringify(orderData));
@@ -52,7 +61,7 @@ const Form = () => {
 	}, []);
 
 	useEffect(() => {
-		if (!city || !street || !house) {
+		if (!city || !street || !house || !phone || !time) {
 			tg.MainButton.hide();
 		} else {
 			tg.MainButton.show();
