@@ -32,7 +32,7 @@ const Form = () => {
 				payment,
 				phone,
 				time,
-				humanCount,
+				humanCount: String(Number(humanCount) + 1),
 				comment,
 			},
 		};
@@ -92,7 +92,7 @@ const Form = () => {
 		setPhone(formattedPhone);
 	};
 	const onChangeTime = (e) => setTime(e.target.value);
-	const onChangeHumanCount = (e) => setHumanCount(e.target.value + 1);
+	const onChangeHumanCount = (e) => setHumanCount(e.target.value);
 	const onChangeComment = (e) => setComment(e.target.value);
 
 	return (
