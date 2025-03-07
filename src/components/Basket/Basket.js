@@ -21,7 +21,7 @@ const Basket = () => {
 		// 	subject,
 		// };
 
-		await fetch('https://c9cc-68-183-154-121.ngrok-free.app/web-data', {
+		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
