@@ -8,8 +8,8 @@
 	& .button {
 		border: none;
 		color: var(--tg-theme-link-color);
-		// background: var(--tg-theme-header-bg-color);
-		background: red;
+		background: var(--tg-theme-header-bg-color);
+		padding: 10px 0;
 		&:hover {
 			transform: scale(1.1);
 		}
