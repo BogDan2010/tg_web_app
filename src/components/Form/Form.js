@@ -92,7 +92,7 @@ const Form = () => {
 		setPhone(formattedPhone);
 	};
 	const onChangeTime = (e) => setTime(e.target.value);
-	const onChangeHumanCount = (e) => setHumanCount(e.target.value);
+	const onChangeHumanCount = (e) => setHumanCount(e.target.value + 1);
 	const onChangeComment = (e) => setComment(e.target.value);
 
 	return (
