@@ -66,7 +66,7 @@ const Form = () => {
 		} else {
 			tg.MainButton.show();
 		}
-	}, [city, street, house]);
+	}, [city, street, house, phone, time]);
 
 	const onChangeCity = (e) => setCity(e.target.value);
 	const onChangeStreet = (e) => setStreet(e.target.value);
@@ -174,6 +174,7 @@ const Form = () => {
 					value={comment}
 					onChangeText={onChangeComment}
 					className={styles.input}
+					type='text'
 					rows='2'
 				/>
 			</div>
