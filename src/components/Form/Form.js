@@ -23,17 +23,15 @@ const Form = () => {
 	const onSendData = useCallback(async () => {
 		const sendData = {
 			orderData,
-			userData: {
-				city,
-				street,
-				house,
-				entrance,
-				payment,
-				phone,
-				time,
-				humanCount,
-				comment,
-			},
+			city,
+			street,
+			house,
+			entrance,
+			payment,
+			phone,
+			time,
+			humanCount,
+			comment,
 		};
 
 		await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data-order', {
@@ -174,7 +172,6 @@ const Form = () => {
 					value={comment}
 					onChangeText={onChangeComment}
 					className={styles.input}
-					type='text'
 					rows='2'
 				/>
 			</div>
