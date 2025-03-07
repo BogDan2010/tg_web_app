@@ -46,7 +46,18 @@ const Form = () => {
 		});
 
 		// tg.sendData(JSON.stringify(orderData));
-	}, [addedItems, city, street, house, phone, time]);
+	}, [
+		addedItems,
+		city,
+		street,
+		house,
+		entrance,
+		payment,
+		phone,
+		time,
+		humanCount,
+		comment,
+	]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
