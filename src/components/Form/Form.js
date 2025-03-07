@@ -22,7 +22,7 @@ const Form = () => {
 
 	const onSendData = useCallback(async () => {
 		const sendData = {
-			orderData,
+			orderData: orderData,
 			city,
 			street,
 			house,
