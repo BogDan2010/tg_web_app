@@ -3,18 +3,18 @@
 	height: 40px;
 	display: flex;
 	align-items: center;
-	padding: 0 20px;
+	// padding: 0 20px;
 	background: var(--tg-theme-header-bg-color);
 	& .button {
 		border: none;
 		color: var(--tg-theme-link-color);
-		background-color: var(--tg-theme-color);
+		background: var(--tg-theme-header-bg-color);
 		&:hover {
 			transform: scale(1.1);
 		}
 		&:active {
 			transform: scale(0.9);
-			background-color: var(--tg-theme-color);
+			background: var(--tg-theme-header-bg-color);
 		}
 	}
 	& .username {
