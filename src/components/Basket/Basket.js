@@ -10,9 +10,9 @@ import styles from './Basket.module.scss';
 const Basket = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	// const orderData = location?.state?.data;
+	const orderData = location?.state?.data;
 	const isAuth = useSelector((state) => state.user.data);
-	const orderData = useSelector((state) => state.basket.data);
+	// const orderData = useSelector((state) => state.basket.data);
 	const { tg } = useTelegram();
 
 	console.log('isAuth', isAuth, orderData);
