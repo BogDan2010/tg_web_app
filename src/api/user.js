@@ -17,12 +17,12 @@ const createHash = (password) => {
 };
 
 export const loginUser = (userData) => {
-	console.log('userData', userData);
-	let data = {
-		login: userData.login,
-		password: createHash(userData.password),
-	};
 	return async (dispatch) => {
+		console.log('userData', userData);
+		let data = {
+			login: userData.login,
+			password: createHash(userData.password),
+		};
 		console.log('data', data);
 		try {
 			const auth = await $host.post('/user/auth', data);
