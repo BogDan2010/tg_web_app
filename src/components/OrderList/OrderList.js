@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
 import OrderListItem from '../OrderListItem/OrderListItem';
 import styles from './OrderList.module.scss';
 
-const OrderList = ({ orderData }) => {
+const OrderList = () => {
+	const orderData = useSelector((state) => state.basket.data);
 	// const orderData = [
 	// 	{
 	// 		comment: ' ',
@@ -18,7 +20,7 @@ const OrderList = ({ orderData }) => {
 	// ];
 	return (
 		<div className={styles.container}>
-			{orderData?.products?.map((product) => (
+			{orderData?.map((product) => (
 				<OrderListItem key={product.id} product={product} />
 			))}
 		</div>

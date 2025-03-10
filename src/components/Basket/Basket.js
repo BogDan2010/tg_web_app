@@ -10,9 +10,10 @@ import styles from './Basket.module.scss';
 const Basket = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const orderData = location?.state?.data;
+	// const orderData = location?.state?.data;
 	const isAuth = useSelector((state) => state.user.data);
-	// const orderData = useSelector((state) => state.basket.data);
+	const orderData = useSelector((state) => state.basket.data);
+	const totalPrice = useSelector((state) => state.basket.totalPrice);
 	const { tg } = useTelegram();
 
 	console.log('isAuth', isAuth, orderData);
@@ -73,7 +74,7 @@ const Basket = () => {
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
 
 			{orderData ? (
-				<OrderList orderData={orderData} />
+				<OrderList orderData={orderData} totalPrice={totalPrice} />
 			) : (
 				<p className={styles.alertText}>Загрузка данных...</p>
 			)}

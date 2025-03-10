@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getAllCategories } from '../../api/categories';
 import { useTelegram } from '../../hooks/useTelegram';
-import { setAddedItems } from '../../store/slices/basketSlice';
+import { setAddedItems, setTotalPrice } from '../../store/slices/basketSlice';
 import ProductItem from '../ProductItem/ProductItem';
 import SubCategoryList from '../SubCategoryList/SubCategoryList';
 import styles from './ProductList.module.scss';
@@ -113,6 +113,7 @@ const ProductList = () => {
 			queryId,
 			initDataUnsafe: tg.initDataUnsafe,
 		};
+
 		// fetch('https://81eb-68-183-154-121.ngrok-free.app/web-data', {
 		// 	method: 'POST',
 		// 	headers: {
@@ -166,6 +167,7 @@ const ProductList = () => {
 			newItems = [...addedItems, { ...product, count: 1 }];
 		}
 		dispatch(setAddedItems(newItems));
+		dispatch(setTotalPrice(getTotalPrice(newItems)));
 
 		if (newItems.length === 0) {
 			tg.MainButton.hide();
