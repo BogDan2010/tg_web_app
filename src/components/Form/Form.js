@@ -1,12 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { formatPhoneNumber } from '../../helpers/formatPhoneNumber';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Form.module.scss';
 
 const Form = () => {
-	const location = useLocation();
-
 	const products = useSelector((state) => state.basket.data);
 	const totalPrice = useSelector((state) => state.basket.totalPrice);
 	const [city, setCity] = useState('');
@@ -30,6 +28,7 @@ const Form = () => {
 				products,
 				queryId,
 				initDataUnsafe,
+				totalPrice,
 			},
 			userData: {
 				city,
