@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../api/user';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Auth.module.scss';
 
 const Auth = () => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { tg } = useTelegram();
-	const orderData = useSelector((state) => state.basket.data);
+	// const orderData = useSelector((state) => state.basket.data);
 
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
@@ -16,7 +18,12 @@ const Auth = () => {
 	// console.log('Auth orderData', orderData);
 
 	const onSendData = () => {
-		navigate('/basket', { state: { data: orderData } });
+		let userData = {
+			login,
+			password,
+		};
+		dispatch(loginUser(userData));
+		navigate('/basket');
 	};
 
 	useEffect(() => {
