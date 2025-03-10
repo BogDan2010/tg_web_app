@@ -14,7 +14,7 @@ const Basket = () => {
 	const isAuth = useSelector((state) => state.user.data);
 	const { tg } = useTelegram();
 
-	console.log('orderData', orderData);
+	console.log('isAuth', isAuth);
 
 	const onSendData = useCallback(async () => {
 		if (!isAuth) return navigate('/auth');
@@ -31,7 +31,7 @@ const Basket = () => {
 		// 	},
 		// 	body: JSON.stringify(orderData),
 		// });
-	}, [orderData]);
+	}, [orderData, isAuth]);
 
 	useEffect(() => {
 		const handleBack = () => {
