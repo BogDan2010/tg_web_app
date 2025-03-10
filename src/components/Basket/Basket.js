@@ -17,13 +17,13 @@ const Basket = () => {
 	console.log('orderData', orderData);
 
 	const onSendData = useCallback(async () => {
-		if (!isAuth) navigate('/auth');
+		if (!isAuth) return navigate('/auth');
 		// const data = {
 		// 	city,
 		// 	street,
 		// 	subject,
 		// };
-		navigate('/form', { state: { data: orderData } });
+		return navigate('/form', { state: { data: orderData } });
 		// await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
 		// 	method: 'POST',
 		// 	headers: {
