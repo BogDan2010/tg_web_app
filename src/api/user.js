@@ -17,6 +17,7 @@ const createHash = (password) => {
 };
 
 export const loginUser = (userData) => {
+	console.log('userData', userData);
 	let data = {
 		login: userData.login,
 		password: createHash(userData.password),
