@@ -23,6 +23,7 @@ export const loginUser = (userData) => {
 		password: createHash(userData.password),
 	};
 	return async (dispatch) => {
+		console.log('data', data);
 		try {
 			const auth = await $host.post('/user/auth', data);
 			console.log('auth', auth);
