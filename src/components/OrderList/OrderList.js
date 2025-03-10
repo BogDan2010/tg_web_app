@@ -3,7 +3,7 @@ import React from 'react';
 import OrderListItem from '../OrderListItem/OrderListItem';
 import styles from './OrderList.module.scss';
 
-const OrderList = (orderData) => {
+const OrderList = ({ orderData }) => {
 	// const orderData = [
 	// 	{
 	// 		comment: ' ',
