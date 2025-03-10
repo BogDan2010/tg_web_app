@@ -53,7 +53,7 @@ const Form = () => {
 
 		// tg.sendData(JSON.stringify(orderData));
 	}, [
-		orderData,
+		products,
 		city,
 		street,
 		house,
