@@ -14,7 +14,7 @@ const Basket = () => {
 	const isAuth = useSelector((state) => state.user.data);
 	const { tg } = useTelegram();
 
-	console.log('isAuth', isAuth);
+	console.log('isAuth', isAuth, orderData);
 
 	const onSendData = useCallback(async () => {
 		if (!isAuth) return navigate('/auth');
