@@ -82,8 +82,6 @@ const ProductList = () => {
 	const products = useSelector((state) => state.categories.dataProducts);
 	const addedItems = useSelector((state) => state.basket.data);
 
-	console.log('subCategory', subCategory);
-
 	const { tg, queryId } = useTelegram();
 
 	useEffect(() => {
@@ -121,7 +119,7 @@ const ProductList = () => {
 		// 	},
 		// 	body: JSON.stringify(data),
 		// });
-		navigate('/basket', { state: { data: data } });
+		navigate('/basket');
 	}, [addedItems, queryId]);
 
 	// const onSendData = useCallback(() => {

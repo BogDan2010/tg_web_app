@@ -6,6 +6,9 @@ import styles from './Form.module.scss';
 
 const Form = () => {
 	const location = useLocation();
+
+	const products = useSelector((state) => state.basket.data);
+	const totalPrice = useSelector((state) => state.basket.totalPrice);
 	const [city, setCity] = useState('');
 	const [street, setStreet] = useState('');
 	const [house, setHouse] = useState('');
@@ -15,15 +18,19 @@ const Form = () => {
 	const [time, setTime] = useState('');
 	const [humanCount, setHumanCount] = useState('');
 	const [comment, setComment] = useState('');
-	const { tg } = useTelegram();
+	const { tg, queryId, initDataUnsafe } = useTelegram();
 
-	const orderData = location?.state?.data;
+	// const orderData = location?.state?.data;
 
 	// console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
 		const sendData = {
-			orderData,
+			orderData: {
+				products,
+				queryId,
+				initDataUnsafe,
+			},
 			userData: {
 				city,
 				street,

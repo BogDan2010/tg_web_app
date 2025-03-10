@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
 import OrderList from '../OrderList/OrderList';
@@ -9,26 +9,21 @@ import styles from './Basket.module.scss';
 
 const Basket = () => {
 	const navigate = useNavigate();
-	const location = useLocation();
-	// const orderData = location?.state?.data;
 	const isAuth = useSelector((state) => state.user.data);
 	const orderData = useSelector((state) => state.basket.data);
-	const totalPrice = useSelector((state) => state.basket.totalPrice);
 	const { tg } = useTelegram();
 
-	console.log('isAuth', isAuth, orderData);
-
 	const onSendData = useCallback(async () => {
-		if (!isAuth) {
-			navigate('/auth');
-			return;
-		}
+		// if (!isAuth) {
+		// 	navigate('/auth');
+		// 	return;
+		// }
 		// const data = {
 		// 	city,
 		// 	street,
 		// 	subject,
 		// };
-		return navigate('/form', { state: { data: orderData } });
+		return navigate('/form');
 		// await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
 		// 	method: 'POST',
 		// 	headers: {
@@ -72,12 +67,7 @@ const Basket = () => {
 	return (
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
-
-			{orderData ? (
-				<OrderList orderData={orderData} totalPrice={totalPrice} />
-			) : (
-				<p className={styles.alertText}>Загрузка данных...</p>
-			)}
+			<OrderList />
 		</div>
 	);
 };
