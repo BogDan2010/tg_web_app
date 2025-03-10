@@ -14,10 +14,10 @@ const Basket = () => {
 	const { tg } = useTelegram();
 
 	const onSendData = useCallback(async () => {
-		// if (!isAuth) {
-		// 	navigate('/auth');
-		// 	return;
-		// }
+		if (!isAuth) {
+			navigate('/auth');
+			return;
+		}
 
 		return navigate('/form');
 		// await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
