@@ -10,14 +10,18 @@ import styles from './Basket.module.scss';
 const Basket = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const orderData = location?.state?.data;
+	// const orderData = location?.state?.data;
 	const isAuth = useSelector((state) => state.user.data);
+	const orderData = useSelector((state) => state.basket.data);
 	const { tg } = useTelegram();
 
 	console.log('isAuth', isAuth, orderData);
 
 	const onSendData = useCallback(async () => {
-		if (!isAuth) return navigate('/auth');
+		if (!isAuth) {
+			navigate('/auth');
+			return;
+		}
 		// const data = {
 		// 	city,
 		// 	street,
@@ -31,7 +35,7 @@ const Basket = () => {
 		// 	},
 		// 	body: JSON.stringify(orderData),
 		// });
-	}, [orderData, isAuth]);
+	}, [orderData, isAuth, navigate]);
 
 	useEffect(() => {
 		const handleBack = () => {

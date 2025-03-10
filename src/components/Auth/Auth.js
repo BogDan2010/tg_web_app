@@ -13,7 +13,7 @@ const Auth = () => {
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 
-	console.log('Auth orderData', orderData);
+	// console.log('Auth orderData', orderData);
 
 	const onSendData = () => {
 		navigate('/basket', { state: { data: orderData } });
