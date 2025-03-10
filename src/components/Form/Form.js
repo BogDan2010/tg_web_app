@@ -68,7 +68,7 @@ const Form = () => {
 
 	useEffect(() => {
 		tg.MainButton.setParams({
-			text: 'Отпрвить заказ',
+			text: 'Отправить заказ',
 		});
 	}, []);
 

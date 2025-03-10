@@ -58,17 +58,17 @@ const Basket = () => {
 		};
 	}, [onSendData]);
 
-	// useEffect(() => {
-	// 	tg.MainButton.setParams({
-	// 		text: 'Отпрвить данные',
-	// 	});
-	// }, []);
+	useEffect(() => {
+		tg.MainButton.setParams({
+			text: 'Отправить заказ',
+		});
+	}, []);
 
 	return (
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
 
-			<OrderList orderData={orderData} />
+			{orderData && <OrderList orderData={orderData} />}
 		</div>
 	);
 };
