@@ -72,7 +72,11 @@ const Basket = () => {
 		<div className={styles.container}>
 			<Header title={'Ваш заказ'} titleButton={'Редактировать'} />
 
-			{orderData && <OrderList orderData={orderData} />}
+			{orderData ? (
+				<OrderList orderData={orderData} />
+			) : (
+				<p>Загрузка данных...</p>
+			)}
 		</div>
 	);
 };
