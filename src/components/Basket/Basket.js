@@ -18,11 +18,7 @@ const Basket = () => {
 		// 	navigate('/auth');
 		// 	return;
 		// }
-		// const data = {
-		// 	city,
-		// 	street,
-		// 	subject,
-		// };
+
 		return navigate('/form');
 		// await fetch('https://36b6-91-212-198-136.ngrok-free.app/web-data', {
 		// 	method: 'POST',
