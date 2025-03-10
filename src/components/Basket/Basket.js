@@ -75,7 +75,7 @@ const Basket = () => {
 			{orderData ? (
 				<OrderList orderData={orderData} />
 			) : (
-				<p>Загрузка данных...</p>
+				<p className={styles.alertText}>Загрузка данных...</p>
 			)}
 		</div>
 	);
