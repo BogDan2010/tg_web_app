@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { $host } from '../core/http';
-import * as config from './config';
+import config from './config';
 
 const createHash = (password) => {
 	let res = crypto
