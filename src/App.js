@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
+import Auth from './components/Auth/Auth';
 import Backet from './components/Basket/Basket';
 import CategoryList from './components/CategoryList/CategoryList';
 import Form from './components/Form/Form';
@@ -36,6 +37,7 @@ function App() {
 					<Route path={'/products'} element={<ProductList />} />
 					<Route path={'/form'} element={<Form />} />
 					<Route path={'/basket'} element={<Backet />} />
+					<Route path={'/auth'} element={<Auth />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
