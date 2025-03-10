@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import styles from './Auth.module.scss';
@@ -7,13 +8,16 @@ import styles from './Auth.module.scss';
 const Auth = () => {
 	const navigate = useNavigate();
 	const { tg } = useTelegram();
+	const orderData = useSelector((state) => state.basket.data);
 
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 
+	console.log('Auth orderData', orderData);
+
 	const onSendData = useCallback(async () => {
-		navigate('/basket');
-	}, []);
+		navigate('/basket', { state: { data: orderData } });
+	}, [orderData]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
