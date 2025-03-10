@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -15,9 +15,9 @@ const Auth = () => {
 
 	console.log('Auth orderData', orderData);
 
-	const onSendData = useCallback(async () => {
+	const onSendData = () => {
 		navigate('/basket', { state: { data: orderData } });
-	}, [orderData]);
+	};
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
