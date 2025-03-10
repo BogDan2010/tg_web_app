@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTelegram } from '../../hooks/useTelegram';
 import Header from '../Header/Header';
@@ -10,11 +11,13 @@ const Basket = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const orderData = location?.state?.data;
+	const isAuth = useSelector((state) => state.user.data);
 	const { tg } = useTelegram();
 
 	console.log('orderData', orderData);
 
 	const onSendData = useCallback(async () => {
+		if (!isAuth) navigate('/auth');
 		// const data = {
 		// 	city,
 		// 	street,

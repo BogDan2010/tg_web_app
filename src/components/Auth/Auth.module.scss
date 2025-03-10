@@ -1,0 +1,29 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 20px;
+}
+
+.formItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid var(--tg-theme-section-separator-color);
+	background: var(--tg-theme-section-bg-color);
+	& label {
+		font-size: 14px;
+		padding: 10px;
+		color: var(--tg-theme-text-color);
+	}
+}
+
+.input {
+	width: 100%;
+	padding: 10px;
+	background-color: var(--tg-theme-bg-color);
+	color: var(--tg-theme-text-color);
+	border: none;
+}
