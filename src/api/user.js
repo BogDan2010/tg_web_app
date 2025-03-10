@@ -4,7 +4,7 @@ import config from './config';
 
 const createHash = (password) => {
 	let res = crypto
-		.pbkdf2Sync(
+		.pbkdf2(
 			password,
 			config.secret,
 			config.crypto.hash.iterations,
