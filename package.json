@@ -15,9 +15,6 @@
 		"redux": "^5.0.1",
 		"sass": "^1.85.0"
 	},
-	"browser": {
-		"crypto": false
-	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
