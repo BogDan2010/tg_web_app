@@ -82,7 +82,7 @@ const Form = () => {
 			},
 		};
 		// console.log('sendData', sendData);
-		await fetch('https://7f74-68-183-154-121.ngrok-free.app/web-data-order', {
+		await fetch('https://8bb0-68-183-154-121.ngrok-free.app/web-data-order', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
