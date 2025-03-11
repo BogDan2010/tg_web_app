@@ -89,7 +89,7 @@ const Form = () => {
 			},
 			body: JSON.stringify(sendData),
 		});
-
+		tg.MainButton.hide();
 		// tg.sendData(JSON.stringify(orderData));
 	}, [
 		products,
