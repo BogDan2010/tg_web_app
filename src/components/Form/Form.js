@@ -23,7 +23,7 @@ const Form = () => {
 	// console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
-		tg.MainButton.showProgress((leaveActive = true));
+		tg.MainButton.showProgress();
 		let dataOrder = {
 			seats: Number(humanCount) + 1, // количество персон
 			addressId: '64dc7812d6288b1298d8619c', // адрес
