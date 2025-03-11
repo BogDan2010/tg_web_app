@@ -56,13 +56,12 @@ const Form = () => {
 				firstName: 'Тестовый пользователь', //имя пользователя
 				payType: payment, // способ оплаты
 				phone: phone, // телефон
-				comment: `Тестовый заказ! Доставить к: [${time}, ${time}]. ${comment.replace(
-					/\r?\n/g,
-					''
-				)}`,
-				dateDelivery: [time, time], // время доставки
+				comment: `Тестовый заказ! Доставить к: ${time.split(
+					':'
+				)}. ${comment.replace(/\r?\n/g, '')}`,
+				dateDelivery: `${time.split(':')}`, // время доставки
 				userId: '64cf7caed6288b1298d7af8b',
-				sum: 1000, // сдача с...
+				sum: '', // сдача с...
 				items: products,
 				bonusSum: '',
 				sumCash: '',
