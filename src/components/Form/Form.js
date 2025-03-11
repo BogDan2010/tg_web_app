@@ -23,6 +23,26 @@ const Form = () => {
 	// console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
+		const fastestTime = new Date();
+		let dataOrder = {
+			seats: Number(humanCount) + 1, // количество персон
+			addressId: '64dc7812d6288b1298d8619c', // адрес
+			firstName: 'Тестовый пользователь', //имя пользователя
+			payType: payment, // способ оплаты
+			phone: phone, // телефон
+			comment: `Тестовый заказ! Доставить к: [${time.getHours()}, ${time.getMinutes()}]. ${comment.replace(
+				/\r?\n/g,
+				''
+			)}`,
+			dateDelivery: [time.getHours(), time.getMinutes()], // время доставки
+			userId: '64cf7caed6288b1298d7af8b',
+			sum: handover === '' ? '' : Number(handover), // сдача с...
+			items: products,
+			bonusSum: '',
+			sumCash: '',
+			sumCard: '',
+			sumCreditCard: '',
+		};
 		const sendData = {
 			orderData: {
 				products,
@@ -31,15 +51,34 @@ const Form = () => {
 				totalPrice,
 			},
 			userData: {
-				city,
-				street,
-				house,
-				entrance,
-				payment,
-				phone,
-				time,
-				humanCount: String(Number(humanCount) + 1),
-				comment,
+				seats: Number(humanCount) + 1, // количество персон
+				addressId: '64dc7812d6288b1298d8619c', // адрес
+				firstName: 'Тестовый пользователь', //имя пользователя
+				payType: payment, // способ оплаты
+				phone: phone, // телефон
+				comment: `Тестовый заказ! Доставить к: [${time.getHours()}, ${time.getMinutes()}]. ${comment.replace(
+					/\r?\n/g,
+					''
+				)}`,
+				dateDelivery: [time.getHours(), time.getMinutes()], // время доставки
+				userId: '64cf7caed6288b1298d7af8b',
+				sum: handover === '' ? '' : Number(handover), // сдача с...
+				items: products,
+				bonusSum: '',
+				sumCash: '',
+				sumCard: '',
+				sumCreditCard: '',
+				// city,
+				// street,
+				// house,
+				// entrance,
+				// payment,
+				// phone,
+				// time,
+				// humanCount: String(Number(humanCount) + 1),
+				// comment: `Тестовый заказ! ${comment}`,
+
+				// "_id": "64cf7caed6288b1298d7af8b",
 			},
 		};
 		// console.log('sendData', sendData);

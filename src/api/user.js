@@ -1,27 +1,19 @@
-import crypto from 'crypto';
+// import crypto from 'crypto';
 import { $host } from '../core/http';
-import config from './config';
 
-const createHash = (password) => {
-	let res = crypto
-		.pbkdf2(
-			password,
-			config.secret,
-			config.crypto.hash.iterations,
-			config.crypto.hash.length,
-			'sha512'
-		)
-		.toString('base64');
-
-	return res;
-};
+// const createHash = async (password) => {
+// 	let res = crypto
+// 		.pbkdf2Sync(password, 'mysecretcodeword', 12000, 128, 'sha512')
+// 		.toString('base64');
+// 	return res;
+// };
 
 export const loginUser = (userData) => {
 	return async (dispatch) => {
-		console.log('userData', userData);
+		console.log('userData', userData.password);
 		let data = {
 			login: userData.login,
-			password: createHash(userData.password),
+			password: userData.password,
 		};
 		console.log('data', data);
 		try {

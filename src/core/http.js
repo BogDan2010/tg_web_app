@@ -25,10 +25,10 @@ const getToken = async () => {
 };
 
 const authInterceptor = async (config) => {
-	let token = await getToken();
+	// let token = await getToken();
 
 	config.headers = {
-		Authorization: `Bearer ${token}`,
+		Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImV4cCI6MTc0NTU3NTk2OC4yNjEsImlhdCI6MTc0MTY4Nzk2OH0.oqNEQQD_saU6G4AxmhZ-NoB_VHC4p6FqjHsAaBSGYx8`,
 	};
 	return config;
 };
