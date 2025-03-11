@@ -36,7 +36,7 @@ const Form = () => {
 			)}`,
 			dateDelivery: [time.getHours(), time.getMinutes()], // время доставки
 			userId: '64cf7caed6288b1298d7af8b',
-			sum: handover === '' ? '' : Number(handover), // сдача с...
+			sum: 1000, // сдача с...
 			items: products,
 			bonusSum: '',
 			sumCash: '',
@@ -62,7 +62,7 @@ const Form = () => {
 				)}`,
 				dateDelivery: [time.getHours(), time.getMinutes()], // время доставки
 				userId: '64cf7caed6288b1298d7af8b',
-				sum: handover === '' ? '' : Number(handover), // сдача с...
+				sum: 1000, // сдача с...
 				items: products,
 				bonusSum: '',
 				sumCash: '',
