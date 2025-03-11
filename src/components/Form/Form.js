@@ -23,7 +23,7 @@ const Form = () => {
 	// console.log('orderData', addedItems);
 
 	const onSendData = useCallback(async () => {
-		const fastestTime = new Date();
+		tg.MainButton.hide();
 		let dataOrder = {
 			seats: Number(humanCount) + 1, // количество персон
 			addressId: '64dc7812d6288b1298d8619c', // адрес
@@ -88,7 +88,7 @@ const Form = () => {
 			},
 			body: JSON.stringify(sendData),
 		});
-		tg.MainButton.hide();
+
 		// tg.sendData(JSON.stringify(orderData));
 	}, [
 		products,
