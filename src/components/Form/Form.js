@@ -30,7 +30,7 @@ const Form = () => {
 			firstName: 'Тестовый пользователь', //имя пользователя
 			payType: payment, // способ оплаты
 			phone: phone, // телефон
-			comment: `Тестовый заказ! Доставить к: [${time.getHours()}, ${time.getMinutes()}]. ${comment.replace(
+			comment: `Тестовый заказ! Доставить к: [${time}, ${time}]. ${comment.replace(
 				/\r?\n/g,
 				''
 			)}`,
