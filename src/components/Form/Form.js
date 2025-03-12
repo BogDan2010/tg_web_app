@@ -82,8 +82,8 @@ const Form = () => {
 		};
 		// console.log('sendData', sendData);
 
-		// await fetch('http://bot.bogdanzz.beget.tech/web-data-order', {
-		await fetch('https://fe39-68-183-154-121.ngrok-free.app/web-data-order', {
+		// await fetch('https://fe39-68-183-154-121.ngrok-free.app/web-data-order', {
+		await fetch('http://bot.bogdanzz.beget.tech/web-data-order', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
