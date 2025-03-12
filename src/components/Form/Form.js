@@ -55,7 +55,7 @@ const Form = () => {
 				addressId: '64dc7812d6288b1298d8619c', // адрес
 				firstName: 'Тестовый пользователь', //имя пользователя
 				payType: payment, // способ оплаты
-				phone: phone, // телефон
+				phone: phone.slice(1), // телефон
 				comment: `Тестовый заказ! Доставить к: [${time.split(
 					':'
 				)}]. ${comment.replace(/\r?\n/g, '')}`,
@@ -81,7 +81,9 @@ const Form = () => {
 			},
 		};
 		// console.log('sendData', sendData);
-		await fetch('http://bot.bogdanzz.beget.tech/web-data-order', {
+
+		// await fetch('http://bot.bogdanzz.beget.tech/web-data-order', {
+		await fetch('https://fe39-68-183-154-121.ngrok-free.app/web-data-order', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
