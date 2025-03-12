@@ -81,7 +81,7 @@ const Form = () => {
 			},
 		};
 		// console.log('sendData', sendData);
-		await fetch('http://bot.bogdanzz.beget.tech//web-data-order', {
+		await fetch('http://bot.bogdanzz.beget.tech/web-data-order', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
